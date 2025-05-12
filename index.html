@@ -1,0 +1,117 @@
+# Regenerate the preview HTML file with the latest landing page code
+html_content = """<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>דף נחיתה - האוניברסיטה הפתוחה סח'נין</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #DFFFE0; /* ירוק חלש מאוד */
+      --secondary: #5C6AC4;
+      --dark: #333;
+      --light: #f9f9f9;
+      --text: #444;
+      --border-radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; color: var(--text); background: var(--light); line-height: 1.6; }
+    header { background: var(--primary); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+    header img.logo { height: 40px; }
+    nav a { color: #444; margin-left: 1.5rem; font-weight: 600; text-decoration: none; }
+    .hero { position: relative; background: url('https://source.unsplash.com/random/1200x600?university') center/cover no-repeat; height: 60vh; display: flex; align-items: center; justify-content: center; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.3); }
+    .hero h1 { position: relative; color: #fff; font-size: 2.5rem; text-align: center; padding: 0 1rem; }
+    .section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .courses { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .course-card { background: #fff; border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: flex; flex-direction: column; }
+    .course-card img { width: 100%; height: 160px; object-fit: cover; }
+    .course-content { padding: 1rem; flex-grow: 1; display: flex; flex-direction: column; }
+    .course-content h3 { margin-bottom: 0.5rem; color: var(--dark); }
+    .course-content p { flex-grow: 1; font-size: 0.9rem; margin-bottom: 1rem; }
+    .course-content .btn { display: inline-block; background: var(--secondary); color: #fff; padding: 0.5rem 1rem; border-radius: var(--border-radius); text-decoration: none; font-weight: 600; }
+    .about { text-align: center; }
+    .about p { max-width: 800px; margin: 0 auto 2rem; }
+    .about img { max-width: 100%; height: auto; border-radius: var(--border-radius); }
+    footer { background: var(--dark); color: #eee; padding: 2rem; text-align: center; }
+    footer .social { margin-bottom: 1rem; }
+    footer .social a { margin: 0 0.5rem; color: #eee; font-size: 1.2rem; text-decoration: none; }
+    footer small { display: block; margin-top: 1rem; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo-op-3-languages-white-8.png" alt="לוגו האוניברסיטה" class="logo">
+    <nav>
+      <a href="#courses">קורסים</a>
+      <a href="#more-courses">עוד מסלולים</a>
+      <a href="#about">למה לבחור בנו?</a>
+      <a href="#contact">צור קשר</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>המסלול המוביל ללימודים באוניברסיטה הפתוחה סח'נין</h1>
+  </section>
+
+  <section id="courses" class="section">
+    <h2 style="text-align:center; margin-bottom:2rem;">מסלולי הלימוד הפופולריים שלנו</h2>
+    <div class="courses">
+      <div class="course-card">
+        <img src="https://source.unsplash.com/random/400x200?social-sciences" alt="מדעי החברה והרוח">
+        <div class="course-content">
+          <h3>מדעי החברה והרוח</h3>
+          <p>תואר ראשון במדעי החברה והרוח בשילוב דיפלומה באומנות משקמת.</p>
+          <a href="#" class="btn">לפרטים</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="https://source.unsplash.com/random/400x200?psychology" alt="פסיכולוגיה">
+        <div class="course-content">
+          <h3>פסיכולוגיה</h3>
+          <p>תוכנית כוללת להתמחות ולקידום מקצועי בתחום הפסיכולוגיה.</p>
+          <a href="#" class="btn">לפרטים</a>
+        </div>
+      </div>
+      <div class="course-card">
+        <img src="https://source.unsplash.com/random/400x200?business" alt="ניהול עסקי וייעוץ משכנתאות">
+        <div class="course-content">
+          <h3>ניהול עסקי וייעוץ משכנתאות</h3>
+          <p>הכשרה מקצועית לניהול עסקים וייעוץ פיננסי למעוניינים בתחום המשכנתאות.</p>
+          <a href="#" class="btn">לפרטים</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="more-courses" class="section">
+    <h2 style="text-align:center; margin-bottom:2rem;">מסלולים נוספים</h2>
+    <p style="text-align:center;">בקרוב יועלו עוד מסלולים – הישארו מעודכנים!</p>
+  </section>
+
+  <section id="about" class="section about" style="background:#fff;">
+    <h2>למה לבחור בנו?</h2>
+    <p>המרכז שלנו מציע סביבה לימודית תומכת, מרצים מובילים בתחומם ותכנית לימודים המשלבת תיאוריה ומעשה. אנו מחויבים להצלחת הסטודנטים, עם ליווי אישי וצוות מקצועי שישמור על מסלול לימודי חווייתי ותומך.</p>
+    <img src="https://source.unsplash.com/random/800x400?education" alt="לימודים באוניברסיטה הפתוחה סח'נין">
+  </section>
+
+  <footer id="contact">
+    <div class="social">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>צרו קשר: mhajuj.qa54@gmail.com | טלפון: 04-6744416</p>
+    <small>&copy; 2025 האוניברסיטה הפתוחה - מרכז סח'נין. כל הזכויות שמורות.</small>
+  </footer>
+
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+</body>
+</html>
+"""
+
+with open('/mnt/data/landingpage_preview.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("Preview file /mnt/data/landingpage_preview.html has been updated.")
