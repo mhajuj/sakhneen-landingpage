@@ -24,17 +24,20 @@
     header {
       background: var(--primary);
       padding: 1rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
-    /* הגדלנו את גובה הלוגו ל-80px */
-    header img.logo { height: 80px; margin-bottom: 1rem; }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header img.logo {
+      height: 80px;
+    }
     header h2.sub-heading {
+      text-align: center;
       color: var(--dark);
       font-size: 1.5rem;
-      margin-bottom: 1rem;
+      margin: 1rem 0 0;
     }
     nav {
       display: flex;
@@ -113,6 +116,10 @@
       font-weight: 600;
       align-self: start;
     }
+    #more-courses h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
     #more-courses p { text-align: center; }
     .about { text-align: center; background: #fff; }
     .about p { max-width: 800px; margin: 0 auto 2rem; }
@@ -130,14 +137,16 @@
 </head>
 <body>
   <header>
-    <img src="images/logo-op-3-languages-black-8.png" alt="לוגו האוניברסיטה" class="logo">
+    <div class="header-top">
+      <img src="images/logo-op-3-languages-black-8.png" alt="לוגו האוניברסיטה" class="logo">
+      <nav>
+        <a href="#courses">קורסים</a>
+        <a href="#more-courses">עוד מסלולים</a>
+        <a href="#about">למה לבחור בנו?</a>
+        <a href="#contact">צור קשר</a>
+      </nav>
+    </div>
     <h2 class="sub-heading">מסלולי הלימוד הפופולריים שלנו</h2>
-    <nav>
-      <a href="#courses">קורסים</a>
-      <a href="#more-courses">עוד מסלולים</a>
-      <a href="#about">למה לבחור בנו?</a>
-      <a href="#contact">צור קשר</a>
-    </nav>
   </header>
 
   <section class="hero">
@@ -166,7 +175,7 @@
   </section>
 
   <section id="more-courses" class="section">
-    <h2 style="text-align:center; margin-bottom:2rem;">מסלולים נוספים</h2>
+    <h2>מסלולים נוספים</h2>
     <p>בקרוב יועלו עוד מסלולים – הישארו מעודכנים!</p>
   </section>
 
