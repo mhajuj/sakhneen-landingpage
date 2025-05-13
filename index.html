@@ -25,14 +25,23 @@
       background: var(--primary);
       padding: 1rem 2rem;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
     }
     /* הגדלנו את גובה הלוגו ל-80px */
-    header img.logo { height: 80px; }
+    header img.logo { height: 80px; margin-bottom: 1rem; }
+    header h2.sub-heading {
+      color: var(--dark);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
     nav a {
       color: var(--dark);
-      margin-left: 1.5rem;
       font-weight: 600;
       text-decoration: none;
     }
@@ -122,6 +131,7 @@
 <body>
   <header>
     <img src="images/logo-op-3-languages-black-8.png" alt="לוגו האוניברסיטה" class="logo">
+    <h2 class="sub-heading">מסלולי הלימוד הפופולריים שלנו</h2>
     <nav>
       <a href="#courses">קורסים</a>
       <a href="#more-courses">עוד מסלולים</a>
@@ -135,7 +145,6 @@
   </section>
 
   <section id="courses" class="section">
-    <h2 style="text-align:center; margin-bottom:2rem;">מסלולי הלימוד הפופולריים שלנו</h2>
     <div class="courses">
       <div class="course-card">
         <img src="images/course1.png" alt="מדעי החברה והרוח">
