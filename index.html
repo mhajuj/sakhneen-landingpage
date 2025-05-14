@@ -16,14 +16,22 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--text); line-height: 1.6; }
-    header { background: var(--primary); padding: 0.5rem 2rem; }
+    header { background: var(--primary); padding: 0.5rem 1rem; position: relative; }
     .header-top { display: flex; justify-content: space-between; align-items: center; }
     .logo-container { display: flex; flex-direction: column; align-items: center; }
-    img.logo { height: 60px; }
-    .campus { color: var(--dark); font-size: 1.2rem; font-weight: 600; margin-top: 0.25rem; }
-    h2.sub-heading { margin: 0 1rem; color: var(--dark); font-size: 1.4rem; font-weight: 600; }
+    img.logo { height: 50px; }
+    .campus { color: var(--dark); font-size: 1rem; font-weight: 600; margin-top: 0.25rem; }
+    h2.sub-heading { margin: 0 1rem; color: var(--dark); font-size: 1.2rem; font-weight: 600; display: none; }
     nav { display: flex; gap: 1rem; }
-    nav a { color: var(--dark); font-weight: 600; text-decoration: none; }
+    nav a { color: var(--dark); font-weight: 600; text-decoration: none; font-size: 0.9rem; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; }
+    .hamburger span { width: 25px; height: 3px; background: var(--dark); margin: 4px 0; }
+    @media (max-width: 768px) {
+      h2.sub-heading { display: block; }
+      nav { display: none; flex-direction: column; background: var(--primary); position: absolute; top: 60px; right: 0; width: 100%; padding: 1rem 0; }
+      nav a { padding: 0.5rem 1rem; }
+      .hamburger { display: flex; }
+    }
     .hero { position: relative; background: url('images/hero.jpg') center/cover no-repeat; height: 60vh; display: flex; align-items: center; justify-content: center; }
     .hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.3); }
     .hero h1 { position: relative; color: #fff; font-size: 2.5rem; text-align: center; padding: 0 1rem; }
@@ -35,7 +43,6 @@
     .course-content h3 { margin-bottom: 0.5rem; color: var(--dark); }
     .course-content p { flex-grow: 1; font-size: 0.9rem; margin-bottom: 1rem; }
     .course-content .btn { background: var(--secondary); color: #fff; padding: 0.5rem 1rem; border-radius: var(--border-radius); font-weight: 600; cursor: pointer; border: none; }
-    @media (max-width: 768px) { .courses { grid-template-columns: 1fr; } }
     .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
     .modal-content { background: #fff; padding: 2rem; border-radius: var(--border-radius); max-width: 500px; width: 90%; position: relative; }
     .modal-content h3 { margin-top: 0; }
@@ -45,17 +52,26 @@
 <body>
   <header>
     <div class="header-top">
-      <div class="logo-container">
-        <img src="images/logo-op-3-languages-black-8.png" alt="לוגו האוניברסיטה" class="logo">
-        <span class="campus">סח'נין 204</span>
+      <div style="display: flex; align-items: center;">
+        <div class="logo-container">
+          <img src="images/logo-op-3-languages-black-8.png" alt="לוגו האוניברסיטה" class="logo">
+          <span class="campus">סח'נין 204</span>
+        </div>
+        <h2 class="sub-heading">מסלולי הלימוד הפופולריים שלנו</h2>
       </div>
-      <h2 class="sub-heading">מסלולי הלימוד הפופולריים שלנו</h2>
-      <nav>
-        <a href="#courses">קורסים</a>
-        <a href="#more-courses">עוד מסלולים</a>
-        <a href="#about">למה לבחור בנו?</a>
-        <a href="#contact">צור קשר</a>
-      </nav>
+      <div style="display: flex; align-items: center;">
+        <nav id="nav-menu">
+          <a href="#courses">קורסים</a>
+          <a href="#more-courses">עוד מסלולים</a>
+          <a href="#about">למה לבחור בנו?</a>
+          <a href="#contact">צור קשר</a>
+        </nav>
+        <div class="hamburger" id="hamburger-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -65,76 +81,68 @@
 
   <section id="courses" class="section">
     <div class="courses">
-      <!-- קיים: מדעי החברה והרוח -->
       <div class="course-card">
         <img src="images/course1.png" alt="מדעי החברה והרוח">
         <div class="course-content">
           <h3>מדעי החברה והרוח</h3>
           <p>מסלול תלת־שנתי בסוציולוגיה, פסיכולוגיה, חינוך ואמנויות.</p>
-          <button class="btn" data-title="מדעי החברה והרוח" data-desc="במסלול תלת־שנתי מובנה בתואר ראשון במדעי החברה והרוח תעמיקו בקורסים בתחומי סוציולוגיה, פסיכולוגיה, חינוך ואמנויות. בסיום התואר ניתן להסבה אקדמית, תעודת הוראה, דיפלומה באמנות משקמת או תכנית ניהול עסקי וייעוץ משכנתאות.">לפרטים</button>
+          <button class="btn" data-title="מדעי החברה והרוח" data-desc="...">לפרטים</button>
         </div>
       </div>
-      <!-- קיים: פסיכולוגיה -->
       <div class="course-card">
         <img src="images/course2.png" alt="פסיכולוגיה">
         <div class="course-content">
           <h3>פסיכולוגיה</h3>
-          <p>לימודי תואר ראשון בפסיכולוגיה להבנת תהליכים מנטליים</p>
-          <button class="btn" data-title="פסיכולוגיה" data-desc="לימודי תואר ראשון בפסיכולוגיה באוניברסיטה הפתוחה מהווים את הצעד הראשון בהבנת תהליכים מנטליים כגון תפיסה, זיכרון, מוטיבציה, החלטות וערכים. בסיום התואר מתאפשר פיתוח קריירה בתחומי טיפול רגשי, ייעוץ ארגוני, משאבי אנוש, מחקר אקדמי וחינוך (כולל תעודת הוראה). מומלץ לשלב דיפלומה באמנות משקמת.">לפרטים</button>
+          <p>לימודי תואר ראשון בפסיכולוגיה להבנת תהליכים מנטליים.</p>
+          <button class="btn" data-title="פסיכולוגיה" data-desc="...">לפרטים</button>
         </div>
       </div>
-      <!-- קיים: חשבונאות -->
       <div class="course-card">
         <img src="images/accounting-students.png" alt="סטודנטים בחשבונאות">
         <div class="course-content">
           <h3>חשבונאות</h3>
-          <p>לימודי חשבונאות עם חטיבה מורחבת בכלכלה לרואי חשבון מוסמכים</p>
-          <button class="btn" data-title="חשבונאות" data-desc="התוכנית לתואר ראשון בחשבונאות עם חטיבה מורחבת בכלכלה מתמקדת בחשבונאות פיננסית, ביקורת חשבונות, חוק ומשפט, מסים וניהול חשבונאי, ומשלבת מערכות מידע בכלכלה. בסיום הלימודים תוכלו לקבל רישיון רואה חשבון מוסמך ולמלא תפקידים ניהוליים במגזר הפרטי והציבורי.">לפרטים</button>
+          <p>לימודי חשבונאות עם חטיבה מורחבת בכלכלה לרואי חשבון מוסמכים.</p>
+          <button class="btn" data-title="חשבונאות" data-desc="...">לפרטים</button>
         </div>
       </div>
-      <!-- חדש: מדעי המחשב -->
       <div class="course-card">
         <img src="images/course4.png" alt="מדעי המחשב">
         <div class="course-content">
           <h3>מדעי המחשב</h3>
           <p>לימודי תואר במדעי המחשב לטכנולוגיות מתקדמות.</p>
-          <button class="btn" data-title="מדעי המחשב" data-desc="לימודי תואר ראשון במדעי המחשב עם הדגשה בפיתוח תוכנה, אלגוריתמים ומערכות מידע. בסיום התואר פיתוח קריירה בהיי-טק, בינה מלאכותית וניתוח נתונים.">לפרטים</button>
+          <button class="btn" data-title="מדעי המחשב" data-desc="...">לפרטים</button>
         </div>
       </div>
-      <!-- חדש: הוראה והכשרת מורים -->
       <div class="course-card">
         <img src="images/course5.png" alt="הוראה והכשרת מורים">
         <div class="course-content">
           <h3>הוראה והכשרת מורים</h3>
           <p>תכנית להכשרת מורים עם תיאוריה והתנסות מעשית.</p>
-          <button class="btn" data-title="הוראה והכשרת מורים" data-desc="תכנית תואר ראשון בהוראה המשלבת פדגוגיה, התנסות מעשית וליווי מקצועי. בסיום מתקבלות הסמכות הוראה לתעודת הוראה בתחומים שונים.">לפרטים</button>
+          <button class="btn" data-title="הוראה והכשרת מורים" data-desc="...">לפרטים</button>
         </div>
       </div>
-      <!-- חדש: ניהול עסקים וייעוץ משכנתאות -->
       <div class="course-card">
         <img src="images/course6.png" alt="ניהול עסקים וייעוץ משכנתאות">
         <div class="course-content">
           <h3>ניהול עסקים וייעוץ משכנתאות</h3>
           <p>תואר בניהול עם התמחות בפיננסים וייעוץ משכנתאות.</p>
-          <button class="btn" data-title="ניהול עסקים וייעוץ משכנתאות" data-desc="תכנית ניהול עסקים מתקדמת עם התמחות בייעוץ משכנתאות וכלים פיננסיים. פיתוח כישורים להובלה וייעוץ פיננסי במגזר הפרטי והעסקי.">לפרטים</button>
+          <button class="btn" data-title="ניהול עסקים וייעוץ משכנתאות" data-desc="...">לפרטים</button>
         </div>
       </div>
-      <!-- חדש: תכנון ועיצוב פנים -->
       <div class="course-card">
         <img src="images/course7.png" alt="תכנון ועיצוב פנים">
         <div class="course-content">
           <h3>תכנון ועיצוב פנים</h3>
-          <p>לימודי תכנון ועיצוב פנים ליישום מרחבי.  </p>
-          <button class="btn" data-title="תכנון ועיצוב פנים" data-desc="תכנית מעמיקה לתכנון ועיצוב פנים, כולל יסודות עיצוביים, שרטוט טכנולוגי והתנסות סטודיו. בסיום יוכלו לבנות פרויקטים פרטיים ומסחריים.">לפרטים</button>
+          <p>לימודי תכנון ועיצוב פנים ליישום מרחבי.</p>
+          <button class="btn" data-title="תכנון ועיצוב פנים" data-desc="...">לפרטים</button>
         </div>
       </div>
-      <!-- חדש: דיפלומה באמנות משקמת -->
       <div class="course-card">
         <img src="images/course8.png" alt="דיפלומה באמנות משקמת">
         <div class="course-content">
           <h3>דיפלומה באמנות משקמת</h3>
           <p>דיפלומה באמנות ככלי טיפולי ומחקר.</p>
-          <button class="btn" data-title="דיפלומה באמנות משקמת" data-desc="דיפלומה מקצועית באמנות משקמת המשמשת ככלי טיפולי. כולל פרקטיקה במרכזים טיפוליים ופרויקטים אמנותיים לפיתוח אישי.">לפרטים</button>
+          <button class="btn" data-title="דיפלומה באמנות משקמת" data-desc="...">לפרטים</button>
         </div>
       </div>
     </div>
@@ -170,18 +178,22 @@
   </div>
 
   <script>
-    const modal = document.getElementById('modal');
-    const titleEl = document.getElementById('modal-title');
-    const descEl = document.getElementById('modal-desc');
-    document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        titleEl.textContent = btn.dataset.title;
-        descEl.textContent = btn.dataset.desc;
-        modal.style.display = 'flex';
-      });
+    const hamburger = document.getElementById('hamburger-btn');
+    const navMenu = document.getElementById('nav-menu');
+    hamburger.addEventListener('click', () => {
+      navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
     });
-    document.querySelector('.close').addEventListener('click', () => modal.style.display = 'none');
-    window.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+    window.addEventListener('resize', () => {
+      navMenu.style.display = window.innerWidth > 768 ? 'flex' : 'none';
+    });
+    document.querySelectorAll('.btn').forEach(btn => btn.addEventListener('click', () => {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'flex';
+      document.getElementById('modal-title').textContent = btn.dataset.title;
+      document.getElementById('modal-desc').textContent = btn.dataset.desc;
+    }));
+    document.querySelector('.close').addEventListener('click', () => document.getElementById('modal').style.display = 'none');
+    window.addEventListener('click', e => { if (e.target.id === 'modal') document.getElementById('modal').style.display = 'none'; });
   </script>
 </body>
 </html>
